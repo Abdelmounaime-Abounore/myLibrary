@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,45 +56,7 @@
                     <th>Delete</th>
                 </tr>
                 <tbody> 
-                    <tr>
-                        <td class="p-4">1</td>
-                        <td>fnkefbef</td>
-                        <td>rfzeef</td>
-                        <td>10</td>
-                        <td>10</td>
-                        <td><button class="btn btn-info" id="update">Update</button></td>
-                        <td><button class="btn btn-danger" id="delete">Delete</button></td>
-                    </tr>
-
-                    <tr>
-                        <td class="p-4">1</td>
-                        <td>fnkefbef</td>
-                        <td>rfzeef</td>
-                        <td>10</td>
-                        <td>10</td>
-                        <td><button class="btn btn-info" id="update">Update</button></td>
-                        <td><button class="btn btn-danger" id="delete">Delete</button></td>
-                    </tr>
-
-                    <tr>
-                        <td class="p-4">1</td>
-                        <td>fnkefbef</td>
-                        <td>rfzeef</td>
-                        <td>10</td>
-                        <td>10</td>
-                        <td><button class="btn btn-info" id="update">Update</button></td>
-                        <td><button class="btn btn-danger" id="delete">Delete</button></td>
-                    </tr>
-
-                    <tr>
-                        <td class="p-4">1</td>
-                        <td>fnkefbef</td>
-                        <td>rfzeef</td>
-                        <td>10</td>
-                        <td>10</td>
-                        <td><button class="btn btn-info" id="update">Update</button></td>
-                        <td><button class="btn btn-danger" id="delete">Delete</button></td>
-                    </tr>
+                    
                 </tbody>
             </table> <br><br><br>
 
