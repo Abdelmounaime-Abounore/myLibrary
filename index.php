@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,18 +44,22 @@
             }
           </style>
           <div class="card-body px-4 py-5 px-md-5">
-            <form  method="POST" action="dashboard.php">
+
+            <form  method="POST" action="dashboard.php" name="form" onsubmit="return validated()">
               <!-- User name input -->
               <div class="form-outline mb-4">
-                <input type="text" id="usrname" class="form-control" name="admin" required/>
-                <label class="form-label">User name</label>
+                <label>Admin name</label>
+                <input type="text" id="usrname" class="form-control" name="admin"/>
+                <div id="name_error" class="text-danger" style="display: none;">*The fields cannot be blank</div>         
               </div>
-
+               
               <!-- Password input -->
               <div class="form-outline mb-4">
-                <input type="password" id="password" class="form-control" name="pass" required/>
-                <label class="form-label">Password</label>
+                <label>Passwordd</label>
+                <input type="password" id="pass_word" class="form-control" name="pass_word"/>
+                <div id="password_error" class="text-danger" style="display: none;">*The fields cannot be blank</div>         
               </div>
+
               <!-- Submit button -->
               <button type="submit" class="btn btn-info btn-block mb-4" name="login">
                 Log in
@@ -69,5 +72,12 @@
   </div>
 </section>
 <!-- Section: Design Block -->
+
+
+  <script src="assets/js/vendor.min.js"></script>
+	<script src="assets/js/app.min.js"></script>
+	<script src="script.js"></script>
+
+
 </body>
 </html>

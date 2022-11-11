@@ -1,3 +1,15 @@
+<?php
+
+include 'conexion.php';
+$Username = $_POST['admin'];
+$Pass = $_POST['pass_word'];
+$Login = $_POST['login'];
+$query = "SELECT * FROM `admin` WHERE Name = '$Username' and Password = '$Pass'";
+$queryexe = mysqli_query($con, $query);
+
+$count = mysqli_num_rows($queryexe);
+if ($count > 0) {
+     ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,21 +76,21 @@
             <form action="" style="color: #DEB887;">
                 <div class="inp_btn">
                     <label class="mt-3">Title</label><br>
-                    <input type="text" placeholder="Title" class="w-100">
+                    <input type="text" placeholder="Title" class="w-100 form-outline border border-secondary rounded">
                 </div>
                 <div class="inp_btn">
                     <label class="mt-3">Author</label><br>
-                    <input type="text" placeholder="Author" class="w-100">
+                    <input type="text" placeholder="Author" class="w-100 form-outline border border-secondary rounded">
                 </div>
                 <div class="inp_btn">
                     <label class="mt-3">Price</label><br>
-                    <input type="number" placeholder="Price" class="w-100">
+                    <input type="number" placeholder="Price" class="w-100 form-outline border border-secondary rounded">
                 </div>
                 <div class="inp_btn">
                     <label class="mt-3">Quantity</label><br>
-                    <input type="number" placeholder="Quantity" class="w-100">
+                    <input type="number" placeholder="Quantity" class="w-100 form-outline border border-secondary rounded">
                 </div>
-                <button class="inp_btn mt-2 p-2 btn btn-secondary mt-3" id="submit">Create</button><br><br><br>
+                <button class="inp_btn mt-4 p-2 btn btn-secondary" id="submit">Create</button><br><br><br>
                 <style>
                     input {
                         height: 40px;
@@ -89,8 +101,17 @@
                         margin-right: 31%;
                     }
                 </style>
-            </form> 
-           
+            </form>            
     </section>
 </body>
 </html> 
+   <?php } else {
+    ?>
+    <script>
+        alert("Username or Password invalid")
+        alert("Please return to the previous page")
+    </script>
+  <?php }
+
+?>
+
