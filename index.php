@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,7 +44,7 @@
           </style>
           <div class="card-body px-4 py-5 px-md-5">
 
-            <form  method="POST" action="dashboard.php" name="form" onsubmit="return validated()">
+            <form  method="POST" action="classes/traitement.php" name="form" onsubmit="return validated()">
               <!-- User name input -->
               <div class="form-outline mb-4">
                 <label>Admin name</label>
@@ -55,13 +54,14 @@
                
               <!-- Password input -->
               <div class="form-outline mb-4">
-                <label>Passwordd</label>
+                <label>Password</label>
                 <input type="password" id="pass_word" class="form-control" name="pass_word"/>
                 <div id="password_error" class="text-danger" style="display: none;">*The fields cannot be blank</div>         
               </div>
 
               <!-- Submit button -->
-              <button type="submit" class="btn btn-info btn-block mb-4" name="login">
+              <input type="hidden" name="action" value="login">
+              <button type="submit" class="btn btn-info btn-block mb-4">
                 Log in
               </button>
             </form>

@@ -1,7 +1,15 @@
 <?php
 
 include 'classes/conexion.php';
-
+$id = $_GET['id'];
+        $query = "SELECT * FROM `books` WHERE id = '$id'";
+        $queryexe = mysqli_query($con, $query);
+        if ($data=$queryexe->fetch_assoc()) {
+            $title=$data['Title'];
+            $author=$data['Author'];
+            $price=$data['Price'];
+            $qte=$data['Quantity'];
+        }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +17,7 @@ include 'classes/conexion.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Update</title>
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 	<link href="assets/css/vendor.min.css" rel="stylesheet" />
@@ -28,7 +36,7 @@ include 'classes/conexion.php';
         </style>
             <div class="navbar d-flex justify-content-evenly p-4" style="font-size: 15px;">
                 <div>
-                    <a class="text-decoration-none link-primary" href=""><h3>myLibrary</h3></a> 
+                <a class="text-decoration-none link-primary" href=""><h3>myLibrary</h3></a> 
                 </div>
 				<div>
 					<ol class="nav">
@@ -48,68 +56,34 @@ include 'classes/conexion.php';
 				</div>
 			</div> <br><br><br><br>
 
-            <h1 class="text-light text-center" style="font-size: 45px;">Hello admin</h1><br><br><br><br>
+            <h1 class="text-info text-center" style="font-size: 45px; margin-left: 6vw;">Update: <?= $title ?></h1><br><br><br><br>
            
-            <table class="w-75 text-center m-auto text-light" style="font-size: 15px; background-color: #392B27; opacity: 70%; border-radius: 10px">
-                <tr>
-                    <th class="p-4">Id</th>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Update</th>
-                    <th>Delete</th>
-                </tr>
-                <tbody> 
-                    <?php   
-                    $query = "SELECT * FROM `books`";
-                    $queryexe = mysqli_query($con, $query);
-                    $count = mysqli_num_rows($queryexe);
-                    if ($count > 0) {
-                        while($data = $queryexe->fetch_assoc()){ ?>
-                        <tr>
-                            <td><?= $data['id']; ?></td>
-                            <td><?= $data['Title']; ?></td>
-                            <td><?= $data['Author']; ?></td>
-                            <td><?= $data['Price']; ?></td>
-                            <td><?= $data['Quantity']; ?></td>
-                            <td> <a class="text-decoration-none link-primary p-2" href="update.php?id=<?= $data['id']; ?> ">Update</a></td>
-                            <td><a  class="text-decoration-none link-danger p-2" href="classes/traitement.php?action=delete&id=<?= $data['id']; ?> ">Delete</a></td>                            
-                            <style> a {
-                                font-weight: bold; 
-                            }
-                            td a:hover {
-                                background: none;
-                            }
-                            </style>
-                        </tr>
-                    <?php } }  else echo '<h3 class="text-danger text-center p-3"> There is no book in the library  :) </h3>'; ?>
-                </tbody>
-            </table> <br><br><br>
 
-            <h1 class="text-light text-center" style="font-size: 45px;">Add a new book</h1> <br><br>
-            <form action="" name="dash_form" style="color: #DEB887;" onsubmit="return validated2()">
+            <h1 class="text-light text-center" style="font-size: 45px; margin-left: 6vw;">Add a new book</h1> <br><br>
+            <form action="classes/traitement.php" method="post" name="dash_form" style="color: #DEB887;">
                 <div class="inp_btn">
                     <label class="mt-3">Title</label><br>
-                    <input type="text" placeholder="Title" class="w-100 form-outline border border-secondary rounded" name="title">
+                    <input type="text" placeholder="Title" class="w-100 form-outline border border-secondary rounded" name="title" value="<?= $title ?>">
                     <div id="title_error" class="text-danger" style="display: none;">*The fields cannot be blank</div> 
                 </div>
                 <div class="inp_btn">
                     <label class="mt-3">Author</label><br>
-                    <input type="text" placeholder="Author" class="w-100 form-outline border border-secondary rounded" name="author">
+                    <input type="text" placeholder="Author" class="w-100 form-outline border border-secondary rounded" name="author" value="<?= $author ?>">
                     <div id="author_error" class="text-danger" style="display: none;">*The fields cannot be blank</div> 
                 </div>
                 <div class="inp_btn">
                     <label class="mt-3">Price</label><br>
-                    <input type="number" placeholder="Price" class="w-100 form-outline border border-secondary rounded" name="price">
+                    <input type="number" placeholder="Price" class="w-100 form-outline border border-secondary rounded" name="price" value="<?= $price ?>">
                     <div id="price_error" class="text-danger" style="display: none;">*The fields cannot be blank</div> 
                 </div>
                 <div class="inp_btn">
                     <label class="mt-3">Quantity</label><br>
-                    <input type="number" placeholder="Quantity" class="w-100 form-outline border border-secondary rounded" name="quantity">
+                    <input type="number" placeholder="Quantity" class="w-100 form-outline border border-secondary rounded" name="quantity" value="<?= $qte ?>">
                     <div id="quantity_error" class="text-danger" style="display: none;">*The fields cannot be blank</div> 
                 </div>
-                <button class="inp_btn mt-4 p-2 btn btn-secondary" id="submit">Create</button><br><br><br>
+                <input type="hidden" name="action" value="update">
+                <input type="hidden" name="id" value="<?= $id ?>">
+                <button class="inp_btn mt-4 p-2 btn btn-secondary" id="submit">update</button><br><br><br>
                 <style>
                     input {
                         height: 40px;
