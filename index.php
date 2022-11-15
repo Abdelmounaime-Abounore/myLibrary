@@ -31,7 +31,7 @@
     <div class="row gx-lg-5 align-items-center mb-5">
       <div class="col-lg-6 mb-5 mb-lg-0">
         <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
-        Welcome to your Library <br />
+        Log in to your library<br />
         </h1>
       </div>
 
@@ -60,10 +60,13 @@
               </div>
 
               <!-- Submit button -->
-              <input type="hidden" name="action" value="login">
-              <button type="submit" class="btn btn-info btn-block mb-4">
-                Log in
-              </button>
+              <div class="d-flex justify-content-between">
+                <input type="hidden" name="action" value="login">
+                <button type="submit" class="btn btn-info btn-block mb-4">
+                  Log in
+                </button>
+                <a style="text-decoration: none;" href="signup.php">Sign Up</a>
+              </div>
             </form>
           </div>
         </div>

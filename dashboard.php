@@ -88,28 +88,28 @@ include 'classes/conexion.php';
             </table> <br><br><br>
 
             <h1 class="text-light text-center" style="font-size: 45px;">Add a new book</h1> <br><br>
-            <form action="" name="dash_form" style="color: #DEB887;" onsubmit="return validated2()">
+            <form action="" name="form" style="color: #DEB887;" onsubmit="return dashFormValide()">
                 <div class="inp_btn">
-                    <label class="mt-3">Title</label><br>
+                    <label class="mt-3 text-success">Title</label><br>
                     <input type="text" placeholder="Title" class="w-100 form-outline border border-secondary rounded" name="title">
-                    <div id="title_error" class="text-danger" style="display: none;">*The fields cannot be blank</div> 
+                    <div id="title_error" class="text-warning" style="display: none;">*The fields cannot be blank</div> 
                 </div>
                 <div class="inp_btn">
-                    <label class="mt-3">Author</label><br>
+                    <label class="mt-3 text-success">Author</label><br>
                     <input type="text" placeholder="Author" class="w-100 form-outline border border-secondary rounded" name="author">
-                    <div id="author_error" class="text-danger" style="display: none;">*The fields cannot be blank</div> 
+                    <div id="author_error" class="text-warning" style="display: none;">*The fields cannot be blank</div> 
                 </div>
                 <div class="inp_btn">
-                    <label class="mt-3">Price</label><br>
+                    <label class="mt-3 text-success">Price</label><br>
                     <input type="number" placeholder="Price" class="w-100 form-outline border border-secondary rounded" name="price">
-                    <div id="price_error" class="text-danger" style="display: none;">*The fields cannot be blank</div> 
+                    <div id="price_error" class="text-warning" style="display: none;">*The fields cannot be blank</div> 
                 </div>
                 <div class="inp_btn">
-                    <label class="mt-3">Quantity</label><br>
+                    <label class="mt-3 text-success">Quantity</label><br>
                     <input type="number" placeholder="Quantity" class="w-100 form-outline border border-secondary rounded" name="quantity">
-                    <div id="quantity_error" class="text-danger" style="display: none;">*The fields cannot be blank</div> 
+                    <div id="quantity_error" class="text-warning" style="display: none;">*The fields cannot be blank</div> 
                 </div>
-                <button class="inp_btn mt-4 p-2 btn btn-secondary" id="submit">Create</button><br><br><br>
+                <button type="submit" class="inp_btn mt-4 p-2 btn btn-secondary" id="submit">Create</button><br><br><br>
                 <style>
                     input {
                         height: 40px;
@@ -122,14 +122,13 @@ include 'classes/conexion.php';
                 </style>
             </form>            
     </section>
+
+    <script src="assets/js/vendor.min.js"></script>
+	<script src="assets/js/app.min.js"></script>
+	<script src="script.js"></script>
+
+
 </body>
 </html> 
    
-    <!-- <script>
-        alert("Username or Password invalid")
-        alert("Please return to the previous page")
-    </script>
-  -->
-
-<!-- ?> -->
 
