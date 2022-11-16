@@ -60,30 +60,30 @@ $id = $_GET['id'];
            
 
             <h1 class="text-light text-center" style="font-size: 45px; margin-left: 6vw;">Add a new book</h1> <br><br>
-            <form action="classes/traitement.php" method="post" name="dash_form" style="color: #DEB887;">
+            <form method="post" action="classes/traitement.php" name="form" style="color: #DEB887;">
                 <div class="inp_btn">
                     <label class="mt-3">Title</label><br>
                     <input type="text" placeholder="Title" class="w-100 form-outline border border-secondary rounded" name="title" value="<?= $title ?>">
-                    <div id="title_error" class="text-danger" style="display: none;">*The fields cannot be blank</div> 
+                    <div id="up_title_error" class="text-danger" style="display: none;">*The fields cannot be blank</div> 
                 </div>
                 <div class="inp_btn">
                     <label class="mt-3">Author</label><br>
                     <input type="text" placeholder="Author" class="w-100 form-outline border border-secondary rounded" name="author" value="<?= $author ?>">
-                    <div id="author_error" class="text-danger" style="display: none;">*The fields cannot be blank</div> 
+                    <div id="up_author_error" class="text-danger" style="display: none;">*The fields cannot be blank</div> 
                 </div>
                 <div class="inp_btn">
                     <label class="mt-3">Price</label><br>
                     <input type="number" placeholder="Price" class="w-100 form-outline border border-secondary rounded" name="price" value="<?= $price ?>">
-                    <div id="price_error" class="text-danger" style="display: none;">*The fields cannot be blank</div> 
+                    <div id="up_price_error" class="text-danger" style="display: none;">*The fields cannot be blank</div> 
                 </div>
                 <div class="inp_btn">
                     <label class="mt-3">Quantity</label><br>
                     <input type="number" placeholder="Quantity" class="w-100 form-outline border border-secondary rounded" name="quantity" value="<?= $qte ?>">
-                    <div id="quantity_error" class="text-danger" style="display: none;">*The fields cannot be blank</div> 
+                    <div id="up_quantity_error" class="text-danger" style="display: none;">*The fields cannot be blank</div> 
                 </div>
                 <input type="hidden" name="action" value="update">
                 <input type="hidden" name="id" value="<?= $id ?>">
-                <button class="inp_btn mt-4 p-2 btn btn-secondary" id="submit">update</button><br><br><br>
+                <button class="inp_btn mt-4 p-2 btn btn-secondary" type="submit" onclick="updateValide(event)">update</button><br><br><br>
                 <style>
                     input {
                         height: 40px;
@@ -96,14 +96,11 @@ $id = $_GET['id'];
                 </style>
             </form>            
     </section>
+
+    <script src="assets/js/vendor.min.js"></script>
+	<script src="assets/js/app.min.js"></script>
+	<script src="assets/js/script.js"></script>
+
 </body>
 </html> 
-   
-    <!-- <script>
-        alert("Username or Password invalid")
-        alert("Please return to the previous page")
-    </script>
-  -->
-
-<!-- ?> -->
-
+  

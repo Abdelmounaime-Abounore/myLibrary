@@ -79,7 +79,7 @@
 
   <script src="assets/js/vendor.min.js"></script>
 	<script src="assets/js/app.min.js"></script>
-	<script src="script.js"></script>
+	<script src="assets/js/script.js"></script>
 
 
 </body>
