@@ -1,3 +1,13 @@
+<?php
+
+session_start();
+
+// include 'classes/conexion.php';
+
+
+?>
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -39,11 +49,11 @@
           </style>
           <div class="card-body px-4 py-5 px-md-5">
 
-            <form  method="POST" action="classes/traitement.php" name="form" onsubmit="return signUpValide()">
+            <form  method="POST" action="classes/traitement.php" name="form">
               <!-- User name input -->
               <div class="form-outline mb-4">
                 <label>Name</label>
-                <input type="text" id="admin_name" class="form-control p-1" name="admin_name"/>
+                <input type="text" id="admin_name" class="form-control p-1" name="name"/>
                 <div id="admin_name_error" class="text-danger" style="display: none;">*The fields cannot be blank</div>         
               </div>
               
@@ -57,19 +67,13 @@
               <!-- Password input -->
               <div class="form-outline mb-4">
                 <label>Password</label>
-                <input type="password" id="pass_word" class="form-control p-1" name="pass_word"/>
+                <input type="password" id="pass_word" class="form-control p-1" name="password"/>
                 <div id="password_error" class="text-danger" style="display: none;">*The fields cannot be blank</div>         
               </div>
 
-              <div class="form-outline mb-4">
-                <label>Confirm your Password</label>
-                <input type="password" id="confirm_password" class="form-control p-1" name="confirm_password"/>
-                <div id="confirm_password_error" class="text-danger" style="display: none;">*The fields cannot be blank</div>         
-              </div>
-
               <!-- Submit button -->
-              <input type="hidden" name="action" value="login">
-              <button type="submit" class="btn btn-info text-light btn-block p-2">
+              <input type="hidden" name="action" value="signup">
+              <button type="submit" class="btn btn-info text-light btn-block p-2" onclick="signUpValide(event)">
                 Sign Up
               </button>
             </form>

@@ -1,15 +1,34 @@
 <?php
-include 'conexion.php';
+include_once 'conexion.php';
+
 if (isset($_POST['action'])) {
 
+
+    // signup to database
+    if($_POST['action']=='signup'){
+
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+  
+    // save to database 
+      $query = "INSERT INTO `users`(`name`, `email`, `password`) VALUES ('$name', '$email', '$password')";
+      $requet = mysqli_query($con, $query);
+      header("Location: ../index.php");
+      die;
+    }
+
     // Login Dashboard
+
     if($_POST['action']=='login'){
         $Username = $_POST['admin'];
         $Pass = $_POST['pass_word'];
-        $query = "SELECT * FROM `admin` WHERE Name = '$Username' and Password = '$Pass'";
+        $query = "SELECT * FROM `users` WHERE name = '$Username' and password = '$Pass'";
         $queryexe = mysqli_query($con, $query);
         $count = mysqli_num_rows($queryexe);
         if ($count > 0) {
+            session_start();
+            $_SESSION['admin']=$Username;
             header('Location:../dashboard.php');
             die;
         }
@@ -19,6 +38,8 @@ if (isset($_POST['action'])) {
         }
         
     }
+    
+    
      // Update Books
      if($_POST['action']=='update'){
         $id = $_POST['id'];
@@ -43,5 +64,6 @@ if (isset($_GET['action'])) {
         die;
     }
 }
+
 
 ?>

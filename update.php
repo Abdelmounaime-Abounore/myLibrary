@@ -1,6 +1,11 @@
 <?php
-
+session_start();
 include 'classes/conexion.php';
+if (!isset($_SESSION['admin'])) {
+    header("Location: index.php");
+    die;
+}
+
 $id = $_GET['id'];
         $query = "SELECT * FROM `books` WHERE id = '$id'";
         $queryexe = mysqli_query($con, $query);
@@ -34,27 +39,8 @@ $id = $_GET['id'];
            background-repeat: no-repeat;
           }
         </style>
-            <div class="navbar d-flex justify-content-evenly p-4" style="font-size: 15px;">
-                <div>
-                <a class="text-decoration-none link-primary" href=""><h3>myLibrary</h3></a> 
-                </div>
-				<div>
-					<ol class="nav">
-                        <li><a class="nav-link" href="" style="color: white;">Features</a></li>
-						<li><a class="nav-link" href="" style="color: white;">Cantact</a></li>
-						<li><a class="nav-link" href="" style="color: white;">Settings</a></li>
-					</ol>
-                    <style>
-                        a:hover {
-                            background-color: #DEB808;
-                            border-radius: 5px;
-                        }
-                    </style>
-				</div>				
-				<div class="d-flex align-items-center">
-					<button class="btn btn-success"> Sign out </button>
-				</div>
-			</div> <br><br><br><br>
+        
+            <?php include_once 'header.php'; ?>
 
             <h1 class="text-info text-center" style="font-size: 45px; margin-left: 6vw;">Update: <?= $title ?></h1><br><br><br><br>
            

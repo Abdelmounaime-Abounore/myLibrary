@@ -1,6 +1,11 @@
 <?php
 
+session_start();
 include 'classes/conexion.php';
+if (!isset($_SESSION['admin'])) {
+    header("Location: index.php");
+    die;
+}
 
 ?>
 <!DOCTYPE html>
@@ -26,29 +31,10 @@ include 'classes/conexion.php';
            background-repeat: no-repeat;
           }
         </style>
-            <div class="navbar d-flex justify-content-evenly p-4" style="font-size: 15px;">
-                <div>
-                    <a class="text-decoration-none link-primary" href=""><h3>myLibrary</h3></a> 
-                </div>
-				<div>
-					<ol class="nav">
-                        <li><a class="nav-link" href="" style="color: white;">Features</a></li>
-						<li><a class="nav-link" href="" style="color: white;">Cantact</a></li>
-						<li><a class="nav-link" href="" style="color: white;">Settings</a></li>
-					</ol>
-                    <style>
-                        a:hover {
-                            background-color: #DEB808;
-                            border-radius: 5px;
-                        }
-                    </style>
-				</div>				
-				<div class="d-flex align-items-center">
-					<button class="btn btn-success"> Sign out </button>
-				</div>
-			</div> <br><br><br><br>
 
-            <h1 class="text-light text-center" style="font-size: 45px;">Hello admin</h1><br><br><br><br>
+            <?php include_once 'header.php'; ?>
+
+            <h1 class="text-light text-center" style="font-size: 45px;">Hello <?= $_SESSION['admin'] ?></h1><br><br><br><br>
            
             <table class="w-75 text-center m-auto text-light" style="font-size: 15px; background-color: #392B27; opacity: 70%; border-radius: 10px">
                 <tr>
@@ -130,5 +116,3 @@ include 'classes/conexion.php';
 
 </body>
 </html> 
-   
-

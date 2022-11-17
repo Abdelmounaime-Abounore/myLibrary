@@ -38,49 +38,33 @@ var email_error = document.getElementById('email_error');
 var pass_error = document.getElementById('password_error');
 var confirm_pass_error = document.getElementById('confirm_password_error');
 
-function signUpValide() {
-
-    var x;
+function signUpValide(e) {
+    
+    
 
     if (signup_name.value.length < 1) {
         signup_name.style.border = "1px solid red";
         admin_name_error.style.display = "block";
-        x = false;
+        e.preventDefault();
     } else {
         admin_name_error.style.display = "none";
-        x = true;
     }
 
     if (email.value.length < 1) {
         email.style.border = "1px solid red";
         email_error.style.display = "block";
-        x = false;
+        e.preventDefault();
     } else {
         email_error.style.display = "none";
-        x = true;
     }
 
     if (password.value.length < 1) {
         password.style.border = "1px solid red";
         pass_error.style.display = "block";
-        x = false;
+        e.preventDefault();
     } else {
         pass_error.style.display = "none";
-        x = true;
     }
-
-    if (confirm_password.value.length < 1) {
-        confirm_password.style.border = "1px solid red";
-        confirm_pass_error.style.display = "block";
-        x = false;
-    } else {
-        confirm_pass_error.style.display = "none";
-        x = true;
-    }
-
-    return x;
-
-    
 }
 
 
