@@ -48,12 +48,12 @@ if (isset($_SESSION['admin'])) unset($_SESSION['admin']);
           </style>
           <div class="card-body px-4 py-5 px-md-5">
 
-            <form  method="POST" action="classes/traitement.php" name="form" onsubmit="return validated()">
+            <form  method="post" action="classes/traitement.php" name="form">
               <!-- User name input -->
               <div class="form-outline mb-4">
-                <label>Admin name</label>
-                <input type="text" id="usrname" class="form-control" name="admin"/>
-                <div id="name_error" class="text-danger" style="display: none;">*The fields cannot be blank</div>         
+                <label>E-mail</label>
+                <input type="email" id="email" class="form-control" name="email"/>
+                <div id="email_error" class="text-danger" style="display: none;">*The fields cannot be blank</div>         
               </div>
                
               <!-- Password input -->
@@ -66,8 +66,8 @@ if (isset($_SESSION['admin'])) unset($_SESSION['admin']);
               <!-- Submit button -->
               <div class="d-flex justify-content-between">
                 <input type="hidden" name="action" value="login">
-                <button type="submit" class="btn btn-info btn-block mb-4">
-                  Log in
+                <button type="submit" class="btn btn-info text-light btn-block p-2" onclick="validated(event)">
+                Login
                 </button>
                 <a style="text-decoration: none;" href="signup.php">Sign Up</a>
               </div>
@@ -83,7 +83,7 @@ if (isset($_SESSION['admin'])) unset($_SESSION['admin']);
 
   <script src="assets/js/vendor.min.js"></script>
 	<script src="assets/js/app.min.js"></script>
-	<script src="assets/js/script.js"></script>
+	<script src="script.js"></script>
 
 
 </body>

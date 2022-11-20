@@ -13,7 +13,7 @@ $id = $_GET['id'];
             $title=$data['Title'];
             $author=$data['Author'];
             $price=$data['Price'];
-            $qte=$data['Quantity'];
+            $gender=$data['Gender']; 
         }
 ?>
 <!DOCTYPE html>
@@ -42,30 +42,30 @@ $id = $_GET['id'];
         
             <?php include_once 'header.php'; ?>
 
-            <h1 class="text-info text-center" style="font-size: 45px; margin-left: 6vw;">Update: <?= $title ?></h1><br><br><br><br>
+            <h1 class="text-info text-center" style="font-size: 45px; margin-left: 6vw;">Update <span class="text-warning"> <?= $title ?> </span></h1><br><br><br><br>
            
 
             <h1 class="text-light text-center" style="font-size: 45px; margin-left: 6vw;">Add a new book</h1> <br><br>
             <form method="post" action="classes/traitement.php" name="form" style="color: #DEB887;">
                 <div class="inp_btn">
                     <label class="mt-3">Title</label><br>
-                    <input type="text" placeholder="Title" class="w-100 form-outline border border-secondary rounded" name="title" value="<?= $title ?>">
-                    <div id="up_title_error" class="text-danger" style="display: none;">*The fields cannot be blank</div> 
+                    <input type="text" placeholder="Title" class="w-100 form-outline border border-secondary rounded" name="title" value=" <?= $title ?>">
+                    <div id="up_title_error" class="text-warning" style="display: none;">*The fields cannot be blank</div> 
                 </div>
                 <div class="inp_btn">
                     <label class="mt-3">Author</label><br>
                     <input type="text" placeholder="Author" class="w-100 form-outline border border-secondary rounded" name="author" value="<?= $author ?>">
-                    <div id="up_author_error" class="text-danger" style="display: none;">*The fields cannot be blank</div> 
+                    <div id="up_author_error" class="text-warning" style="display: none;">*The fields cannot be blank</div> 
                 </div>
                 <div class="inp_btn">
                     <label class="mt-3">Price</label><br>
                     <input type="number" placeholder="Price" class="w-100 form-outline border border-secondary rounded" name="price" value="<?= $price ?>">
-                    <div id="up_price_error" class="text-danger" style="display: none;">*The fields cannot be blank</div> 
+                    <div id="up_price_error" class="text-warning" style="display: none;">*The fields cannot be blank</div> 
                 </div>
                 <div class="inp_btn">
-                    <label class="mt-3">Quantity</label><br>
-                    <input type="number" placeholder="Quantity" class="w-100 form-outline border border-secondary rounded" name="quantity" value="<?= $qte ?>">
-                    <div id="up_quantity_error" class="text-danger" style="display: none;">*The fields cannot be blank</div> 
+                    <label class="mt-3">Gender</label><br>
+                    <input type="text" placeholder="Gender" class="w-100 form-outline border border-secondary rounded" name="gender" value="<?= $gender ?>">
+                    <div id="up_gender_error" class="text-warning" style="display: none;">*The fields cannot be blank</div> 
                 </div>
                 <input type="hidden" name="action" value="update">
                 <input type="hidden" name="id" value="<?= $id ?>">

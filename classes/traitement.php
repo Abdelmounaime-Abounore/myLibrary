@@ -1,6 +1,6 @@
 <?php
 include_once 'conexion.php';
-
+session_start();
 if (isset($_POST['action'])) {
 
 
@@ -21,14 +21,26 @@ if (isset($_POST['action'])) {
     // Login Dashboard
 
     if($_POST['action']=='login'){
-        $Username = $_POST['admin'];
+        $email = $_POST['email'];
         $Pass = $_POST['pass_word'];
-        $query = "SELECT * FROM `users` WHERE name = '$Username' and password = '$Pass'";
+        $query = "SELECT * FROM `users` WHERE email = '$email' and password = '$Pass'";
         $queryexe = mysqli_query($con, $query);
+        $row = mysqli_fetch_assoc($queryexe);
+        // var_dump($row);
+        // echo '<hr>';
+        // echo $row["name"];
+        // $names = ['nadir','mounaim', 'hassan'];
+        // echo '<hr>';
+        // echo $row['id'];
+        // var_dump($names);
+
+        // echo $names[0];
+        // die();
         $count = mysqli_num_rows($queryexe);
-        if ($count > 0) {
+        if($count > 0) {
             session_start();
-            $_SESSION['admin']=$Username;
+            $_SESSION['admin'] = $row['name'];
+            $_SESSION['user_Id'] = $row['id'];
             header('Location:../dashboard.php');
             die;
         }
@@ -46,19 +58,34 @@ if (isset($_POST['action'])) {
         $title = $_POST['title'];
         $author = $_POST['author'];
         $price = $_POST['price'];
-        $qte = $_POST['quantity'];
-        $query = "UPDATE `books` set Title='$title',Author='$author',Price='$price',Quantity='$qte' WHERE id = '$id'";
+        $gender = $_POST['gender'];
+        $query = "UPDATE `books` set Title='$title',Author='$author',Price='$price',Gender='$gender' WHERE id = '$id'";
         $exec = mysqli_query($con, $query);
         header('Location:../dashboard.php');
         die;
      }
+
+     // add book
+    if($_POST['action']=='add'){
+
+        $title  = $_POST['title'];
+        $author = $_POST['author'];
+        $price  = $_POST['price'];
+        $gender = $_POST['gender'];
+        $userid = $_SESSION['user_Id'];
+        // save to database 
+          $query = "INSERT INTO `books`(`Title`, `Author`, `Price`, `Gender`, `userID`) VALUES ('$title', '$author', '$price', '$gender', '$userid')";
+          $requet = mysqli_query($con, $query);
+          header("Location: ../dashboard.php");
+          die;
+        }
 }
 
 if (isset($_GET['action'])) {
     // Delete book
-    if($_GET['action']=='delete'){
+    if($_GET['action'] == 'delete'){
         $id = $_GET['id'];
-        $query = "DELETE FROM `books` WHERE id = '$id'";
+        $query = "DELETE FROM `books` WHERE id = $id";
         $exec = mysqli_query($con, $query);
         header('Location:../dashboard.php');
         die;

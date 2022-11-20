@@ -1,27 +1,28 @@
-var adminname = document.forms['form']['admin'];
+var email = document.forms['form']['email'];
 var pass_word = document.forms['form']['pass_word'];
-var name_error = document.getElementById('name_error');
+var email_error = document.getElementById('email_error');
 var password_error = document.getElementById('password_error');
 
-function validated() {
-    if (adminname.value.length < 1) {
-        adminname.style.border = "1px solid red";
-        name_error.style.display = "block";
-        x = false;
+function validated(e) {
+    console.log(email);
+    if (email.value == "") {
+        email.style.border = "1px solid red";
+        email_error.style.display = "block";
+        e.preventDefault();
     } else {
-        name_error.style.display = "none";
-        x = true;
+        email_error.style.display = "none";
+        
     }
+
     if (pass_word.value.length < 1) {
         pass_word.style.border = "1px solid red";
         password_error.style.display = "block";
-        x = false;
+        e.preventDefault();
     } else {
         password_error.style.display = "none";
-        x = true;
     }
 
-    return x;
+    
 }
 
 // _____________________________________________________________________
@@ -40,14 +41,12 @@ var confirm_pass_error = document.getElementById('confirm_password_error');
 
 function signUpValide(e) {
     
-    
-
-    if (signup_name.value.length < 1) {
-        signup_name.style.border = "1px solid red";
-        admin_name_error.style.display = "block";
+    if (signup_name.value == "") {
+        up_title_error.style.display = "block";
         e.preventDefault();
     } else {
-        admin_name_error.style.display = "none";
+        up_title_error.style.display = "none";
+        
     }
 
     if (email.value.length < 1) {
@@ -74,12 +73,12 @@ function signUpValide(e) {
 var title = document.forms['form']['title'];
 var author = document.forms['form']['author'];
 var price = document.forms['form']['price'];
-var quantity = document.forms['form']['quantity'];
+var gender = document.forms['form']['gender'];
 
 var title_error = document.getElementById('title_error');
 var author_error = document.getElementById('author_error');
 var price_error = document.getElementById('price_error');
-var quantity_error = document.getElementById('quantity_error');
+var gender_error = document.getElementById('gender_error');
 
 
 
@@ -110,11 +109,11 @@ function dashFormValide() {
         x = true;
     }
     
-    if (quantity.value.length < 1) {
-        quantity_error.style.display = "block";
+    if (gender.value.length < 1) {
+        gender_error.style.display = "block";
         x = false;
     } else {
-        quantity_error.style.display = "none";
+        gender_error.style.display = "none";
         x = true;
     }
     return x;
@@ -129,12 +128,12 @@ function dashFormValide() {
 var up_title = document.forms['form']['title'];
 var up_author = document.forms['form']['author'];
 var up_price = document.forms['form']['price'];
-var up_quantity = document.forms['form']['quantity'];
+var up_gender = document.forms['form']['gender'];
 
 var up_title_error = document.getElementById('up_title_error');
 var up_author_error = document.getElementById('up_author_error');
 var up_price_error = document.getElementById('up_price_error');
-var up_quantity_error = document.getElementById('up_quantity_error');
+var up_gender_error = document.getElementById('up_gender_error');
 
 function updateValide(e) {
     
@@ -162,11 +161,11 @@ function updateValide(e) {
         up_price_error.style.display = "none";
     }
     
-    if (up_quantity.value.length < 1) {
-        up_quantity_error.style.display = "block";
+    if (up_gender.value.length < 1) {
+        up_gender_error.style.display = "block";
         e.preventDefault();
     } else {
-        up_quantity_error.style.display = "none";
+        up_gender_error.style.display = "none";
         
     }
 }

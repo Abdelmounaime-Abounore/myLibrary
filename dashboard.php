@@ -34,33 +34,37 @@ if (!isset($_SESSION['admin'])) {
 
             <?php include_once 'header.php'; ?>
 
-            <h1 class="text-light text-center" style="font-size: 45px;">Hello <?= $_SESSION['admin'] ?></h1><br><br><br><br>
+            <h1 class="text-light text-center" style="font-size: 45px;">Hello <span class="text-warning"> <?php echo $_SESSION['admin'] ?> </span></h1><br><br><br><br>
+            
            
             <table class="w-75 text-center m-auto text-light" style="font-size: 15px; background-color: #392B27; opacity: 70%; border-radius: 10px">
                 <tr>
-                    <th class="p-4">Id</th>
-                    <th>Title</th>
+                    <!-- <th class="p-4">Id</th> -->
+                    <th class="p-4">Title</th>
                     <th>Author</th>
                     <th>Price</th>
-                    <th>Quantity</th>
+                    <th>Gender</th>
                     <th>Update</th>
                     <th>Delete</th>
                 </tr>
-                <tbody> 
-                    <?php   
-                    $query = "SELECT * FROM `books`";
+                <tbody>
+                     
+                    <?php  
+                    $userid = $_SESSION['user_Id']; 
+                    $query = "SELECT * FROM `books` WHERE userID = '$userid'";
                     $queryexe = mysqli_query($con, $query);
                     $count = mysqli_num_rows($queryexe);
                     if ($count > 0) {
                         while($data = $queryexe->fetch_assoc()){ ?>
                         <tr>
-                            <td><?= $data['id']; ?></td>
-                            <td><?= $data['Title']; ?></td>
+                            
+                            <td class="p-2"><?= $data['Title']; ?></td>
                             <td><?= $data['Author']; ?></td>
                             <td><?= $data['Price']; ?></td>
-                            <td><?= $data['Quantity']; ?></td>
+                            <td><?= $data['Gender']; ?></td>
                             <td> <a class="text-decoration-none link-primary p-2" href="update.php?id=<?= $data['id']; ?> ">Update</a></td>
-                            <td><a  class="text-decoration-none link-danger p-2" href="classes/traitement.php?action=delete&id=<?= $data['id']; ?> ">Delete</a></td>                            
+                            <td><a  class="text-decoration-none link-danger p-2" href="classes/traitement.php?action=delete&id=<?= $data['id']; ?> ">Delete</a></td>                       
+                                 
                             <style> a {
                                 font-weight: bold; 
                             }
@@ -74,7 +78,7 @@ if (!isset($_SESSION['admin'])) {
             </table> <br><br><br>
 
             <h1 class="text-light text-center" style="font-size: 45px;">Add a new book</h1> <br><br>
-            <form action="" name="form" style="color: #DEB887;" onsubmit="return dashFormValide()">
+            <form method="POST" action="classes/traitement.php" name="form" style="color: #DEB887;" onsubmit="return dashFormValide()">
                 <div class="inp_btn">
                     <label class="mt-3 text-success">Title</label><br>
                     <input type="text" placeholder="Title" class="w-100 form-outline border border-secondary rounded" name="title">
@@ -86,15 +90,16 @@ if (!isset($_SESSION['admin'])) {
                     <div id="author_error" class="text-warning" style="display: none;">*The fields cannot be blank</div> 
                 </div>
                 <div class="inp_btn">
-                    <label class="mt-3 text-success">Price</label><br>
+                    <label class="mt-3 text-success">Price (DH)</label><br>
                     <input type="number" placeholder="Price" class="w-100 form-outline border border-secondary rounded" name="price">
                     <div id="price_error" class="text-warning" style="display: none;">*The fields cannot be blank</div> 
                 </div>
                 <div class="inp_btn">
-                    <label class="mt-3 text-success">Quantity</label><br>
-                    <input type="number" placeholder="Quantity" class="w-100 form-outline border border-secondary rounded" name="quantity">
-                    <div id="quantity_error" class="text-warning" style="display: none;">*The fields cannot be blank</div> 
+                    <label class="mt-3 text-success">Gender</label><br>
+                    <input type="text" placeholder="Gander" class="w-100 form-outline border border-secondary rounded" name="gender">
+                    <div id="gender_error" class="text-warning" style="display: none;">*The fields cannot be blank</div> 
                 </div>
+                <input type="hidden" name="action" value="add">
                 <button type="submit" class="inp_btn mt-4 p-2 btn btn-secondary" id="submit">Create</button><br><br><br>
                 <style>
                     input {
