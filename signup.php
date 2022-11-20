@@ -15,24 +15,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sign Up</title>
     
-    
+    <link rel="stylesheet" href="./css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   </head>
+  
   <body>
      <!-- Section: Design Block -->
 <section class="bg_login overflow-hidden" style="font-family: Calibri;">
-  <style>
-    .bg_login {
-      background-image: url(./img/bg_biblio.png);
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-  </style>
+  
   
 
-  <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+  <div class="container px-4 py-5 px-md-5 text-center text-lg-start">
     <div class="row gx-lg-5 align-items-center mb-5">
       <div class="col-lg-6 mb-5 mb-lg-0">
         <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
@@ -42,11 +35,7 @@
 
       <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
         <div class="card">
-          <style>
-            .card {
-              border-radius: 15px;
-            }
-          </style>
+          
           <div class="card-body px-4 py-5 px-md-5">
 
             <form  method="POST" action="classes/traitement.php" name="form">
@@ -89,5 +78,5 @@
 
   <script src="assets/js/vendor.min.js"></script>
 	<script src="assets/js/app.min.js"></script>
-	<script src="assets/js/script.js"></script>
+	<script src="script.js"></script>
 </html>

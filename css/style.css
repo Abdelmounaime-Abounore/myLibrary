@@ -1,0 +1,29 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    height:100% ;
+}
+
+body{
+    height: 100%;
+}
+
+.bg_login {
+
+    background-image: url(../img/bg_biblio.png);
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+
+  }
+
+  .card {
+    border-radius: 15px;
+  }
+
+

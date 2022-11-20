@@ -4,48 +4,33 @@ if (isset($_SESSION['admin'])) unset($_SESSION['admin']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Log in</title>
-
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-	<link href="assets/css/vendor.min.css" rel="stylesheet" />
-	<link href="assets/css/default/app.min.css" rel="stylesheet" />
-
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/style.css">
 </head>
+
+
+
+
 <body>
   <!-- Section: Design Block -->
-<section class="bg_login overflow-hidden">
-  <style>
-    .bg_login {
-      background-image: url(./img/bg_biblio.png);
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-  </style>
-  
+<section class="bg_login">
 
-  <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+  <div class="container px-4 py-5 px-md-5 text-center text-lg-start">
     <div class="row gx-lg-5 align-items-center mb-5">
       <div class="col-lg-6 mb-5 mb-lg-0">
         <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
-        Log in to your library<br />
+        Log in to your<br />
         </h1>
       </div>
 
       <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
         <div class="card">
-          <style>
-            .card {
-              border-radius: 15px;
-            }
-          </style>
           <div class="card-body px-4 py-5 px-md-5">
 
             <form  method="post" action="classes/traitement.php" name="form">
@@ -77,6 +62,7 @@ if (isset($_SESSION['admin'])) unset($_SESSION['admin']);
       </div>
     </div>
   </div>
+
 </section>
 <!-- Section: Design Block -->
 

@@ -1,10 +1,11 @@
 var email = document.forms['form']['email'];
 var pass_word = document.forms['form']['pass_word'];
+
 var email_error = document.getElementById('email_error');
 var password_error = document.getElementById('password_error');
 
 function validated(e) {
-    console.log(email);
+    
     if (email.value == "") {
         email.style.border = "1px solid red";
         email_error.style.display = "block";
