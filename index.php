@@ -21,28 +21,28 @@ if (isset($_SESSION['admin'])) unset($_SESSION['admin']);
   <!-- Section: Design Block -->
 <section class="bg_login">
 
-  <div class="container px-4 py-5 px-md-5 text-center text-lg-start">
-    <div class="row gx-lg-5 align-items-center mb-5">
-      <div class="col-lg-6 mb-5 mb-lg-0">
-        <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
-        Log in to your<br />
+  <div class="container px-5 text-center text-lg-start h-100">
+    <div class="row align-items-center mb-5">
+      <div class="col-lg-6 mt-5">
+        <h1 class="my-5 fw-bold" style="color: hsl(218, 81%, 95%); font-family: 'Oswald Bold', bold, sans-serif"; >
+        Log in to your Library<br />
         </h1>
       </div>
 
-      <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+      <div class="col-lg-6  mt-5 position-relative">
         <div class="card">
-          <div class="card-body px-4 py-5 px-md-5">
+          <div class="card-body px-4 py-5 px-md-5 h-100">
 
             <form  method="post" action="classes/traitement.php" name="form">
               <!-- User name input -->
-              <div class="form-outline mb-4">
+              <div class="mb-4">
                 <label>E-mail</label>
                 <input type="email" id="email" class="form-control" name="email"/>
                 <div id="email_error" class="text-danger" style="display: none;">*The fields cannot be blank</div>         
               </div>
                
               <!-- Password input -->
-              <div class="form-outline mb-4">
+              <div class="mb-4">
                 <label>Password</label>
                 <input type="password" id="pass_word" class="form-control" name="pass_word"/>
                 <div id="password_error" class="text-danger" style="display: none;">*The fields cannot be blank</div>         

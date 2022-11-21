@@ -14,8 +14,8 @@ if (isset($_POST['action'])) {
     // save to database 
       $query = "INSERT INTO `users`(`name`, `email`, `password`) VALUES ('$name', '$email', '$password')";
       $requet = mysqli_query($con, $query);
-      header("Location: ../index.php");
-      die;
+    //   header("Location: ../index.php");
+    //   die;
     }
 
     // Login Dashboard

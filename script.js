@@ -15,7 +15,7 @@ function validated(e) {
         
     }
 
-    if (pass_word.value.length < 1) {
+    if (pass_word.value == "") {
         pass_word.style.border = "1px solid red";
         password_error.style.display = "block";
         e.preventDefault();
@@ -33,20 +33,18 @@ function validated(e) {
 var signup_name = document.forms['form']['admin_name'];
 var email = document.forms['form']['email'];
 var password = document.forms['form']['pass_word'];
-var confirm_password = document.forms['form']['confirm_password'];
 
 var admin_name_error = document.getElementById('admin_name_error');
 var email_error = document.getElementById('email_error');
 var pass_error = document.getElementById('password_error');
-var confirm_pass_error = document.getElementById('confirm_password_error');
-
 function signUpValide(e) {
     
     if (signup_name.value == "") {
-        up_title_error.style.display = "block";
+        signup_name.style.border = "1px solid red";
+        admin_name_error.style.display = "block";
         e.preventDefault();
     } else {
-        up_title_error.style.display = "none";
+        admin_name_error.style.display = "none";
         
     }
 

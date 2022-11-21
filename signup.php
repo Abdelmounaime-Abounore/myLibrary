@@ -21,22 +21,19 @@
   
   <body>
      <!-- Section: Design Block -->
-<section class="bg_login overflow-hidden" style="font-family: Calibri;">
-  
-  
+<section class="bg_login" style="font-family: Calibri;">
 
-  <div class="container px-4 py-5 px-md-5 text-center text-lg-start">
-    <div class="row gx-lg-5 align-items-center mb-5">
-      <div class="col-lg-6 mb-5 mb-lg-0">
-        <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
+  <div class="container px-5 text-center text-lg-start">
+    <div class="row align-items-center mb-5 pt-5">
+      <div class="col-lg-6 mt-5">
+        <h1 class="my-5 fw-bold" style="color: hsl(218, 81%, 95%); font-family: 'Oswald Bold', sans-serif"">
         Sign Up as Admin<br />
         </h1>
       </div>
 
-      <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
-        <div class="card">
-          
-          <div class="card-body px-4 py-5 px-md-5">
+      <div class="col-lg-6 position-relative">
+        <div class="card">          
+          <div class="card-body px-4 px-md-5">
 
             <form  method="POST" action="classes/traitement.php" name="form">
               <!-- User name input -->
