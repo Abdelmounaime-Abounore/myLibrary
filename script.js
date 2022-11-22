@@ -48,7 +48,7 @@ function signUpValide(e) {
         
     }
 
-    if (email.value.length < 1) {
+    if (email.value == "") {
         email.style.border = "1px solid red";
         email_error.style.display = "block";
         e.preventDefault();
@@ -56,7 +56,7 @@ function signUpValide(e) {
         email_error.style.display = "none";
     }
 
-    if (password.value.length < 1) {
+    if (password.value == "") {
         password.style.border = "1px solid red";
         pass_error.style.display = "block";
         e.preventDefault();
@@ -81,42 +81,35 @@ var gender_error = document.getElementById('gender_error');
 
 
 
-function dashFormValide() {
-    var x;
-    if (title.value.length < 1) {
+function dashFormValide(e) {
+    if (title.value == "") {
         title_error.style.display = "block";
-        x = false;
+        e.preventDefault();
     } else {
         title_error.style.display = "none";
-        x = true;
         
     }
     
-    if (author.value.length < 1) {
+    if (author.value == "") {
         author_error.style.display = "block";
-        x = false;
+        e.preventDefault();
     } else {
         author_error.style.display = "none";
-        x = true;
     }
     
-    if (price.value.length < 1) {
+    if (price.value == "") {
         price_error.style.display = "block";
-        x = false;
+        e.preventDefault();
     } else {
         price_error.style.display = "none";
-        x = true;
     }
     
-    if (gender.value.length < 1) {
+    if (gender.value == "") {
         gender_error.style.display = "block";
-        x = false;
+        e.preventDefault();
     } else {
         gender_error.style.display = "none";
-        x = true;
     }
-    return x;
-
 
 }
 
@@ -145,7 +138,7 @@ function updateValide(e) {
         
     }
     
-    if (up_author.value.length < 1) {
+    if (up_author.value == "") {
         up_author_error.style.display = "block";
         e.preventDefault();
     } else {
@@ -153,14 +146,14 @@ function updateValide(e) {
         
     }
     
-    if (up_price.value.length < 1) {
+    if (up_price.value == "") {
         up_price_error.style.display = "block";
         e.preventDefault();
     } else {
         up_price_error.style.display = "none";
     }
     
-    if (up_gender.value.length < 1) {
+    if (up_gender.value == "") {
         up_gender_error.style.display = "block";
         e.preventDefault();
     } else {

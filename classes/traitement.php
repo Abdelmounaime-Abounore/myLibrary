@@ -14,8 +14,8 @@ if (isset($_POST['action'])) {
     // save to database 
       $query = "INSERT INTO `users`(`name`, `email`, `password`) VALUES ('$name', '$email', '$password')";
       $requet = mysqli_query($con, $query);
-    //   header("Location: ../index.php");
-    //   die;
+      header("Location: ../index.php");
+      die;
     }
 
     // Login Dashboard
@@ -26,19 +26,8 @@ if (isset($_POST['action'])) {
         $query = "SELECT * FROM `users` WHERE email = '$email' and password = '$Pass'";
         $queryexe = mysqli_query($con, $query);
         $row = mysqli_fetch_assoc($queryexe);
-        // var_dump($row);
-        // echo '<hr>';
-        // echo $row["name"];
-        // $names = ['nadir','mounaim', 'hassan'];
-        // echo '<hr>';
-        // echo $row['id'];
-        // var_dump($names);
-
-        // echo $names[0];
-        // die();
         $count = mysqli_num_rows($queryexe);
         if($count > 0) {
-            session_start();
             $_SESSION['admin'] = $row['name'];
             $_SESSION['user_Id'] = $row['id'];
             header('Location:../dashboard.php');

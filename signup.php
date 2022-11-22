@@ -1,13 +1,3 @@
-<?php
-
-// session_start();
-
-// include 'classes/conexion.php';
-
-
-?>
-
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -61,6 +51,7 @@
               <input type="hidden" name="action" value="signup">
               <button type="submit" class="btn btn-info text-light btn-block p-2" onclick="signUpValide(event)">
                 Sign Up
+         
               </button>
             </form>
           </div>

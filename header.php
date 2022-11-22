@@ -16,6 +16,6 @@
                     </style>
 				</div>				
 				<div class="d-flex align-items-center">
-					<a href="index.php" class="btn btn-success"> Sign out </a>
+					<a href="index.php" class="btn btn-secondary"> Sign out </a>
 				</div>
 			</div> <br><br><br><br>
